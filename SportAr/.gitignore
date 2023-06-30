@@ -1,0 +1,6 @@
+# created by virtualenv automatically
+# * comento el asterico y excluye las carpetas
+/lib
+/scripts
+pyvenv.cfg
+
