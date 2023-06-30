@@ -19,12 +19,12 @@
             <a  class="btn btn-primary" href="articulo_nuevo.html">Nuevo</a>
             <br><br>
             <div v-if="error">
-                <p>Lo sentimos ........</p>
+                <p>Error al cargar base de datos</p>
             </div>
             <div v-else>
                 <section v-if="cargando">
                     <div class="spinner-border"></div>
-                    <p>Cargando .....</p>
+                    <p>Cargando su base de datos</p>
                 </section>
                 <section v-else>
                     <div class="table-responsive">
