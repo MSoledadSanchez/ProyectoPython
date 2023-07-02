@@ -17,6 +17,15 @@
             <h2>Listado de Articulos</h2>
 
             <a  class="btn btn-primary" href="articulo_nuevo.html">Nuevo</a>
+         
+            <!-- <span>Filtrar por Categoria: {{ selected }}</span>
+            <select v-model="selected">
+                <option value="">Todas</option>
+                <option>Indumentaria</option>
+                <option>Calzado</option>
+                <option>Accesorios</option>
+            </select> -->
+           
             <br><br>
             <div v-if="error">
                 <p>Error al cargar base de datos</p>
@@ -34,13 +43,13 @@
                                     <th scope="col">Id</th>
                                     <th scope="col">Titulo</th>
                                     <th scope="col">Descripcion</th>
-                                    <th scope="col">Category</th>
-                                    <th scope="col">Subcategory</th>
+                                    <th scope="col">Categoria</th>
+                                    <th scope="col">Sub-Categoria</th>
                                     <th scope="col">Precio</th>
                                     <th scope="col">Cantidad</th>
                                     <th scope="col">Cuotas</th>
                                     <th scope="col">Descuento</th>
-                                    <th scope="col">Image</th>
+                                    <th scope="col">Imagen</th>
                                     <th scope="col">Acciones</th>
                                 </tr>
                             </thead>
@@ -55,10 +64,10 @@
                                     <td>{{articulo.cantidad}}</td>
                                     <td>{{articulo.cuotas}}</td>
                                     <td>{{articulo.descuento}}</td>
-                                    <td>{{articulo.image}}</td> 
-                                    <!--<td>
-                                        <img width="60"  :src="articulo.image" :alt="artigulo.titulo">
-                                    </td> -->
+                                    <!-- <td>{{articulo.image}}</td>  -->
+                                    <td>
+                                        <img width="60"  :src="articulo.image" :alt="articulo.titulo">
+                                    </td>
                                     <td>
                     			<a class="btn btn-primary" :href="'articulo_update.html?id='+ articulo.id" >Editar</a>
                                       <button type="button" class="btn btn-danger" v-on:click="eliminar(articulo.id)" >Eliminar</button>
