@@ -68,6 +68,13 @@ def get_articulo(id):
     return articulo_schema.jsonify(articulo)        # retorna el JSON de un articulo recibido como parametro
 
 
+@app.route('/articulos_cat/<category>',methods=['GET'])     #Trae los articulos por categoria
+def get_ArticulosCat(category):
+    all_articulos_cat=Articulo.query.filter_by(category=category).all()
+    result=articulos_schema.dump(all_articulos_cat)   
+    return jsonify(result)                         
+
+
 @app.route('/articulos/<id>',methods=['DELETE'])
 def delete_articulo(id):
     articulo=Articulo.query.get(id)
