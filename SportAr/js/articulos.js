@@ -63,6 +63,15 @@ const { createApp } = Vue
                 cuotas:this.cuotas,
                 descuento:this.descuento
             }
+
+
+            if (!articulo.titulo || !articulo.descripcion || !articulo.category || !articulo.subcategory || !articulo.precio || !articulo.cantidad || !articulo.image || !articulo.cuotas || !articulo.descuento) {
+                alert("Por favor, completa los campos obligatorios");
+                return;
+            }
+
+
+
             var options = {
                 body:JSON.stringify(articulo),
                 method: 'POST',

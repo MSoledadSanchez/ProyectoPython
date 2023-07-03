@@ -43,39 +43,44 @@ const { createApp } = Vue
                 })
         },
         modificar() {
-            
             let articulo = {
-                titulo:this.titulo,
+                titulo: this.titulo,
                 descripcion: this.descripcion,
                 category: this.category,
-                subcategory:this.subcategory,
-                precio:this.precio,
-                cantidad:this.cantidad,
-                image:this.image,
-                cuotas:this.cuotas,
-                descuento:this.descuento,
+                subcategory: this.subcategory,
+                precio: this.precio,
+                cantidad: this.cantidad,
+                image: this.image,
+                cuotas: this.cuotas,
+                descuento: this.descuento,
+            };
+        
+            if (!articulo.titulo || !articulo.descripcion || !articulo.category || !articulo.subcategory || !articulo.precio || !articulo.cantidad || !articulo.image || !articulo.cuotas || !articulo.descuento) {
+                alert("Por favor, completa los campos obligatorios");
+                return;
             }
-
+        
             var options = {
                 body: JSON.stringify(articulo),
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 redirect: 'follow'
-            }
-
-            
-            
+            };
+        
             fetch(this.url, options)
                 .then(function () {
-                    alert("Articulo modificado")
-                    window.location.href = "./articulos.html";             
+                    alert("Articulo modificado");
+                    window.location.href = "./articulos.html";
                 })
                 .catch(err => {
                     console.error(err);
-                    alert("Error al modificar articulo")
-                })      
+                    alert("Error al modificar articulo");
+                });
         }
+        
     },
+
+    
     created() {
         this.fetchData(this.url)
     },
