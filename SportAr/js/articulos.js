@@ -33,16 +33,25 @@ const { createApp } = Vue
                 })
         },
         eliminar(articulo) {
-            const url = this.url+'/' + articulo;
-            var options = {
-                method: 'DELETE',
-            }
-            fetch(url, options)
+
+            var mensaje;
+            var opcion = confirm("Esta seguro de eliminar el articulo:" + articulo);
+            
+            if (opcion == null || opcion == "") {
+                    mensaje = "Has cancelado";
+                    
+                } else {
+                    const url = this.url+'/' + articulo;
+                    var options = {
+                    method: 'DELETE',
+                }
+                fetch(url, options)
                 .then(res => res.text()) // or res.json()
                 .then(res => {
                     location.reload();
                 })
-        },
+                }
+            },
         grabar(){
             let articulo = {
                 titulo:this.titulo,
