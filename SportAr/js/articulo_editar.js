@@ -19,6 +19,7 @@ const { createApp } = Vue
        }  
     },
     methods: {
+        
         fetchData(url) {
             fetch(url)
                 .then(response => response.json())
@@ -35,12 +36,14 @@ const { createApp } = Vue
                     this.cuotas=data.cuotas
                     this.descuento=data.descuento                   
                 })
+                
                 .catch(err => {
                     console.error(err);
                     this.error=true              
                 })
         },
         modificar() {
+            
             let articulo = {
                 titulo:this.titulo,
                 descripcion: this.descripcion,
@@ -52,12 +55,16 @@ const { createApp } = Vue
                 cuotas:this.cuotas,
                 descuento:this.descuento,
             }
+
             var options = {
                 body: JSON.stringify(articulo),
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 redirect: 'follow'
             }
+
+            
+            
             fetch(this.url, options)
                 .then(function () {
                     alert("Articulo modificado")
