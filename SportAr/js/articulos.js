@@ -35,7 +35,7 @@ const { createApp } = Vue
         eliminar(articulo) {
 
             var mensaje;
-            var opcion = confirm("Esta seguro de eliminar el articulo:" + articulo);
+            var opcion = confirm("¿Está seguro de eliminar el articulo " + articulo + " ?");
             
             if (opcion == null || opcion == "") {
                     mensaje = "Has cancelado";
